@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قرآن مبارک</title>
+    <link rel="stylesheet" href="./CSSs/quran.css">
+</head>
+<body onload="setTimeout(noneDisplyFirst,2000)">
+    <div id="firstPageApp" style="position: absolute; z-index: 100; top: 0; left: 0; width: 100%; height: 100%;">
+        <div style="text-align: center; width: 100%; height: 100%; border: 0px; border-radius: 0px;background-color: rgb(203, 187, 158); background-image: url('./images/patern-background.png');background-size: cover;text-align: center;">
+            <img src="./images/logo - Copy.png" style="height: 50vh; margin: 25vh 0 0 0" class="anim">
+        </div>
+    </div>
+    <div id="body-length">
+        <div class="partishen-general">
+            <div style="text-align: center;">
+                <img src="./images/logo.png" id="logo">
+                <p class="zar fz2">ویژه مساجد</p>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <div class="partishen">
+                <img src="./images/page.png" class="icon">
+                <p class="titr zar">یک صفحه</p>
+                <button class="select-type zar" onclick="onePage()">انتخاب</button>
+            </div>
+            <div class="partishen">
+                <img src="./images/pages.png" class="iconTwoPage">
+                <p class="titr zar">دو صفحه</p>
+                <button class="select-type zar" onclick="twoPage()">انتخاب</button>
+            </div>
+            <div class="partishen">
+                <img src="./images/soreh icon.png" class="iconSoreh">
+                <p class="titr zar">یک سوره</p>
+                <button class="select-type zar" onclick="soreh()">انتخاب</button>
+            </div>
+            <div class="partishen">
+                <img src="./images/jozIcon.png" class="iconJoz">
+                <p class="titr zar">یک جزء</p>
+                <button class="select-type zar" onclick="joz()">انتخاب</button>
+            </div>
+        </div>
+        <div class="partishen-general">
+            <div style="display: inline-block; width: 50%; padding: 1% 5%;">
+                <span class="badr fz1_7"><b>نسبت صفحه را انتخاب کنید:</b></span>
+            </div>
+            <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
+                <label class="container badr" onclick="localStorage.setItem('nesbat','1.778');window.location.reload();">9*16
+                    <input type="radio" id="nesbat16" name="radio">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
+                <label class="container badr" onclick="localStorage.setItem('nesbat','1.333');window.location.reload();">3*4
+                    <input type="radio" id="nesbat4" name="radio">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div style="display: inline-block; width: 50%; padding: 1% 5%;">
+                <span class="badr fz1_7"><b>اندازه متون (تعداد هر بخش در اسلاید):</b></span>
+            </div>
+            <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
+                <label class="container badr" onclick="localStorage.setItem('number_line','4');setSize();">4
+                    <input type="radio" id="numlin4" name="radio1">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
+                <label class="container badr" onclick="localStorage.setItem('number_line','2');setSize();">2
+                    <input type="radio" id="numlin2" name="radio1">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button onclick="window.close()" style="width: 40%; padding: 1%;" class="close-app zar">خروج از برنامه</button>
+            <button onclick="helpApp()" style="width: 40%; padding: 1%;" class="close-app zar">راهنما</button>
+        </div>
+
+        <div id="onePage2" style="display: none;">
+            <div class="bg_black_op"></div>
+            <div class="winTwo" style="text-align: center;">
+                <p class="zar fz2" style="padding: 1%;">شماره صفحه مورد نظر برای تلاوت روزانه را وارد کنید:</p>
+                <input class="input_number badr" type="number" min="1" max="624" style="display: block;" id="onePageValue">
+                <p class="badr error fz1_7" style="padding: 1%; color: rgb(255, 0, 0); display: none;"><b>*شماره صفحه باید بین عدد 1 تا 624 باشد.</b></p>
+                <button onclick="onePageCode()" style="width: 30%; padding: 1%; margin: 1% 15% 1% 4%; position: absolute; bottom: 1%; right: 0;" class="select-type zar">تایید</button>
+                <button onclick="buttonX()" style="width: 30%; padding: 1%; margin: 1% 4% 1% 15%; position: absolute; bottom: 1%; left: 0;" class="select-type zar">انصراف</button>
+            </div>
+        </div>
+        <div id="twoPage2" style="display: none;">
+            <div class="bg_black_op"></div>
+            <div class="winTwo" style="text-align: center;">
+                <p class="zar fz2" style="padding: 1%;">شماره صفحه اول مورد نظر برای تلاوت روزانه را وارد کنید:</p>
+                <input class="input_number badr" type="number" min="1" max="624" style="display: block;" id="twoPageValue">
+                <p class="badr error fz1_7" style="padding: 1% ;color: rgb(255, 0, 0); display: none;"><b>*شماره صفحه باید بین عدد 1 تا 624 باشد.</b></p>
+                <p class="zar fz2" style="padding:1%; position: absolute; bottom: 25%;" id="iw">*صفحه بعدی انتخاب شده شما نیز به عنوان صفحه دوم اعمال خواهد شد.</p>
+                <button onclick="twoPageCode()" style="width: 30%; padding:1%; margin: 1% 15% 1% 4%; position: absolute; bottom: 1%; right: 0;" class="select-type zar">تایید</button>
+                <button onclick="buttonX()" style="width: 30%; padding:1%; margin: 1% 4% 1% 15%; position: absolute; bottom: 1%; left: 0;" class="select-type zar">انصراف</button>
+            </div>
+        </div>
+        <div id="soreh2" style="display: none;">
+            <div class="bg_black_op"></div>
+            <div class="winTwo" style="text-align: center;">
+                <p class="zar fz2" style="padding:1%;">سوره مورد نظر را انتخاب کنید:</p>
+                <div>
+                    <select class="badr select_soreh" id="sorehValue">
+                        <option value="1">1. فاتحه</option>
+                        <option value="2">2. بقره</option>
+                        <option value="3">3. آل‌عمران</option>
+                        <option value="4">4. نساء</option>
+                        <option value="5">5. مائده</option>
+                        <option value="6">6. انعام</option>
+                        <option value="7">7. اعراف</option>
+                        <option value="8">8. انفال</option>
+                        <option value="9">9. توبه</option>
+                        <option value="10">10. یونس</option>
+                        <option value="11">11. هود</option>
+                        <option value="12">12. یوسف</option>
+                        <option value="13">13. رعد</option>
+                        <option value="14">14. ابراهیم</option>
+                        <option value="15">15. حجر</option>
+                        <option value="16">16. نحل</option>
+                        <option value="17">17. اسراء</option>
+                        <option value="18">18. کهف</option>
+                        <option value="19">19. مریم</option>
+                        <option value="20">20. طه</option>
+                        <option value="21">21. انبیاء</option>
+                        <option value="22">22. حج</option>
+                        <option value="23">23. مؤمنون</option>
+                        <option value="24">24. نور</option>
+                        <option value="25">25. فرقان</option>
+                        <option value="26">26. شعراء</option>
+                        <option value="27">27. نمل</option>
+                        <option value="28">28. قصص</option>
+                        <option value="29">29. عنکبوت</option>
+                        <option value="30">30. روم</option>
+                        <option value="31">31. لقمان</option>
+                        <option value="32">32. سجده</option>
+                        <option value="33">33. احزاب</option>
+                        <option value="34">34. سبا</option>
+                        <option value="35">35. فاطر</option>
+                        <option value="36">36. یس</option>
+                        <option value="37">37. صافات</option>
+                        <option value="38">38. ص</option>
+                        <option value="39">39. زمر</option>
+                        <option value="40">40. غافر (مؤمن)</option> 
+                        <option value="41">41. فصلت</option>
+                        <option value="42">42. شوری</option>
+                        <option value="43">43. ذخرف</option>
+                        <option value="44">44. دخان</option>
+                        <option value="45">45. جاثیه</option>
+                        <option value="46">46. احقاف</option>
+                        <option value="47">47. محمد</option>
+                        <option value="48">48. فتح</option>
+                        <option value="49">49. حجرات</option>
+                        <option value="50">50. ق</option>
+                        <option value="51">51. ذاریات</option>
+                        <option value="52">52. طور</option>
+                        <option value="53">53. نجم</option>
+                        <option value="54">54. قمر</option>
+                        <option value="55">55. الرحمن</option>
+                        <option value="56">56. واقعه</option>
+                        <option value="57">57. حدید</option>
+                        <option value="58">58. مجادله</option>
+                        <option value="59">59. حشر</option>
+                        <option value="60">60. ممتحنه</option>
+                        <option value="61">61. صف</option>
+                        <option value="62">62. جمعه</option>
+                        <option value="63">63. منافقون</option>
+                        <option value="64">64. تغابن</option>
+                        <option value="65">65. طلاق</option>
+                        <option value="66">66. تحریم</option>
+                        <option value="67">67. ملک</option>
+                        <option value="68">68. فلم</option>
+                        <option value="69">69. حاقه</option>
+                        <option value="70">70. معارج</option>
+                        <option value="71">71. نوح</option>
+                        <option value="72">72. جن</option>
+                        <option value="73">73. مزمل</option>
+                        <option value="74">74. مدثر</option>
+                        <option value="75">75. قیامه</option>
+                        <option value="76">76. انسان (دهر)</option>
+                        <option value="77">77. مرسلات</option>
+                        <option value="78">78. نبأ</option>
+                        <option value="79">79. نازعات</option>
+                        <option value="80">80. عبس</option>
+                        <option value="81">81. تکویر</option>
+                        <option value="82">82. انفطار</option>
+                        <option value="83">83. مطففین</option>
+                        <option value="84">84. انشقاق</option>
+                        <option value="85">85. بروج</option>
+                        <option value="86">86. طارق</option>
+                        <option value="87">87. اعلی</option>
+                        <option value="88">88. غاشیه</option>
+                        <option value="89">89. فجر</option>
+                        <option value="90">90. بلد</option>
+                        <option value="91">91. شمس</option>
+                        <option value="92">92. لیل</option>
+                        <option value="93">93. ضحی</option>
+                        <option value="94">94. شرح</option>
+                        <option value="95">95. تین</option>
+                        <option value="96">96. علق</option>
+                        <option value="97">97. قدر</option>
+                        <option value="98">98. بینه</option>
+                        <option value="99">99. زلزله</option>
+                        <option value="100">100. عادیات</option>
+                        <option value="101">101. قارعه</option>
+                        <option value="102">102. تکاثر</option>
+                        <option value="103">103. عصر</option>
+                        <option value="104">104. همزه</option>
+                        <option value="105">105. فیل</option>
+                        <option value="106">106. قریش</option>
+                        <option value="107">107. ماعون</option>
+                        <option value="108">108. کوثر</option>
+                        <option value="109">109. کافرون</option>
+                        <option value="110">110. نصر</option>
+                        <option value="111">111. مسد</option>
+                        <option value="112">112. اخلاص (توحید)</option>
+                        <option value="113">113. فلق</option>
+                        <option value="114">114. ناس</option>
+                    </select>
+                </div>
+                <button onclick="sorehCode()" style="width: 30%; padding:1%; margin: 1% 15% 1% 4%; position: absolute; bottom: 1%; right: 0;" class="select-type zar">تایید</button>
+                <button onclick="buttonX()" style="width: 30%; padding:1%; margin: 1% 4% 1% 15%; position: absolute; bottom: 1%; left: 0;" class="select-type zar">انصراف</button>
+            </div>
+        </div>
+        <div id="joz2" style="display: none;">
+            <div class="bg_black_op"></div>
+            <div class="winTwo" style="text-align: center;">
+                <p class="zar fz2" style="padding:1%;">شماره جزء مورد نظر را وارد کنید:</p>
+                <input class="input_number badr" type="number" min="1" max="30" style="display: block;" id="jozValue">
+                <p class="badr error fz1_7" style="padding:1%; color: rgb(255, 0, 0); display: none;"><b>*شماره جزء باید بین عدد 1 تا 30 باشد.</b></p>
+                <button onclick="jozCode()" style="width: 30%; padding:1%; margin: 1% 15% 1% 4%; position: absolute; bottom: 1%; right: 0;" class="select-type zar">تایید</button>
+                <button onclick="buttonX()" style="width: 30%; padding:1%; margin: 1% 4% 1% 15%; position: absolute; bottom: 1%; left: 0;" class="select-type zar">انصراف</button>
+            </div>
+        </div>
+
+        
+
+
+
+        <div class="nameGod" id="nameGod" style="text-align: center;"></div>
+        <div class="endPage" id="endPage" style="text-align: center;"></div>
+        
+        <div class="firstPage" id="firstPage" style="text-align: center;">
+            <p class="firstPageInf badr widthParagraf" id="firstPage_numPage"></p>
+            <p class="firstPageInf1 badr widthParagraf1" id="firstPage_Subject"></p>
+            <p class="firstPageInf2 badr" id="firstPage_Subject2" style="text-align: right;"></p>
+            <p class="firstPageInf3 zar widthParagraf2" id="firstPage_Subject3" style="text-align: center;"></p>
+        </div>
+
+        <div class="firstPage2" id="firstPage2" style="text-align: center;">
+            <p class="firstPageInf4 badr widthParagraf3" id="firstPage_numPage2"></p>
+            <p class="firstPageInf5 badr widthParagraf4" id="firstPage_Subject4" style="text-align: right;"></p>
+            <pre class="firstPageInf6 badr widthParagraf5" id="firstPage_Subject5"></pre>
+            <p class="firstPageInf7 badr widthParagraf6" id="firstPage_Subject6"></p>
+            <p class="firstPageInf8 badr" id="firstPage_Subject7" style="text-align: right;"></p>
+            <p class="firstPageInf9 zar widthParagraf7" id="firstPage_Subject8" style="text-align: center;"></p>
+        </div>
+
+        <div class="tarjomeh" id="tarjomeh" style="text-align: center;">
+            <p class="matn_tarjomeh zar"></p>
+        </div>
+
+        <div class="generalPage" id="generalPage" style="text-align: center;">
+            <p class="subject zar" id="subject">موضوع این مجموعه آیات: </p>
+            <p class="numberPage badr" id="numberPage">اسلاید 6 از 8 اسلاید</p>
+            <div id="part44" style="display: none;">
+                <div class="generalPart4 p41">
+                    <p class="hafs matn4" id="mp41"></p>
+                    <p class="zar tarjomeh4" id="tp41"></p>
+                </div>
+                <div class="generalPart4 p42">
+                    <p class="hafs matn4" id="mp42"></p>
+                    <p class="zar tarjomeh4" id="tp42"></p>
+                </div>
+                <div class="generalPart4 p43">
+                    <p class="hafs matn4" id="mp43"></p>
+                    <p class="zar tarjomeh4" id="tp43"></p>
+                </div>
+                <div class="generalPart4 p44">
+                    <p class="hafs matn4" id="mp44"></p>
+                    <p class="zar tarjomeh4" id="tp44"></p>
+                </div>
+            </div>
+            <div id="part43" style="display: none;">
+                <div class="generalPart4 p31">
+                    <p class="hafs matn4" id="mp31"></p>
+                    <p class="zar tarjomeh4" id="tp31"></p>
+                </div>
+                <div class="generalPart4 p32">
+                    <p class="hafs matn4" id="mp32"></p>
+                    <p class="zar tarjomeh4" id="tp32"></p>
+                </div>
+                <div class="generalPart4 p33">
+                    <p class="hafs matn4" id="mp33"></p>
+                    <p class="zar tarjomeh4" id="tp33"></p>
+                </div>
+            </div>
+            <div id="part42" style="display: none;">
+                <div class="generalPart4 p21">
+                    <p class="hafs matn4" id="mp21"></p>
+                    <p class="zar tarjomeh4" id="tp21"></p>
+                </div>
+                <div class="generalPart4 p22">
+                    <p class="hafs matn4" id="mp22"></p>
+                    <p class="zar tarjomeh4" id="tp22"></p>
+                </div>
+            </div>
+            <div id="part22" style="display: none;">
+                <div class="generalPart2 p221">
+                    <div style="position: relative;top: 50%;transform: translateY(-50%);">
+                        <p class="hafs matn2" id="mp221"></p>
+                        <p class="zar tarjomeh2" id="tp221"></p>
+                    </div>
+                </div>
+                <div class="generalPart2 p222">
+                    <div style="position: relative;top: 50%;transform: translateY(-50%);">
+                        <p class="hafs matn2" id="mp222"></p>
+                        <p class="zar tarjomeh2" id="tp222"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="part21" style="display: none;">
+                <div class="generalPart2 p211">
+                    <div style="position: relative;top: 50%;transform: translateY(-50%);">
+                        <p class="hafs matn2" id="mp211"></p>
+                        <p class="zar tarjomeh2" id="tp211"></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="partFP41" style="display: none;">
+                <p class="badr infsoreh infsorehR41" id="is411"></p>
+                <div class="generalPart4 p41 pFP41 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh41"></div>
+                <p class="badr infsoreh infsorehL41" id="is412"></p>
+                <div class="generalPart4 p42">
+                    <p class="hafs matn4" id="mns41"></p>
+                    <p class="zar tarjomeh4" id="tns41"></p>
+                </div>
+                <div class="generalPart4 p43">
+                    <p class="hafs matn4" id="mns42"></p>
+                    <p class="zar tarjomeh4" id="tns42"></p>
+                </div>
+                <div class="generalPart4 p44">
+                    <p class="hafs matn4" id="mns43"></p>
+                    <p class="zar tarjomeh4" id="tns43"></p>
+                </div>
+            </div>
+            <div id="partFP42" style="display: none;">
+                <p class="badr infsoreh infsorehR42" id="is421"></p>
+                <div class="generalPart4 pFP42 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh42"></div>
+                <p class="badr infsoreh infsorehL42" id="is422"></p>
+                <div class="generalPart4 p43">
+                    <p class="hafs matn4" id="mns31"></p>
+                    <p class="zar tarjomeh4" id="tns31"></p>
+                </div>
+                <div class="generalPart4 p44">
+                    <p class="hafs matn4" id="mns32"></p>
+                    <p class="zar tarjomeh4" id="tns32"></p>
+                </div>
+            </div>
+            <div id="partFP21" style="display: none;">
+                <p class="badr infsoreh infsorehR21" id="is211"></p>
+                <div class="generalPart2 pf221 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh43"></div>
+                <p class="badr infsoreh infsorehL21" id="is212"></p>
+                <div class="generalPart2 p222">
+                    <div style="position: relative;top: 50%;transform: translateY(-50%);">
+                        <p class="hafs matn2" id="mns21"></p>
+                        <p class="zar tarjomeh2" id="tns21"></p>
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+
+
+
+
+
+
+
+        <div class="nameGod" id="nameGod2" style="text-align: center;"></div>
+        <div class="endPage" id="endPage2" style="text-align: center;"></div>
+        
+        <div class="firstPage" id="firstPage3" style="text-align: center;">
+            <p class="firstPageInf10 badr widthParagraf8" id="firstPage_numPage3"></p>
+            <p class="firstPageInf11 badr widthParagraf9" id="firstPage_Subject9" style="text-align: right;"></p>
+            <pre class="firstPageInf12 badr widthParagraf10" id="firstPage_Subject10"></pre>
+            <p class="firstPageInf13 badr widthParagraf11" id="firstPage_Subject11"></p>
+            <p class="firstPageInf14 badr" id="firstPage_Subject12" style="text-align: right;"></p>
+            <p class="firstPageInf15 zar widthParagraf12" id="firstPage_Subject13" style="text-align: center;"></p>
+        </div>
+        
+        <div class="firstPage" id="firstPage4" style="text-align: center;">
+            <p class="firstPageInf16 badr widthParagraf13" id="firstPage_numPage4"></p>
+            <p class="firstPageInf17 badr widthParagraf14" id="firstPage_Subject14" style="text-align: right;"></p>
+            <pre class="firstPageInf18 badr widthParagraf15" id="firstPage_Subject15"></pre>
+            <p class="firstPageInf19 badr widthParagraf16" id="firstPage_Subject16"></p>
+            <p class="firstPageInf20 badr" id="firstPage_Subject17" style="text-align: right;"></p>
+            <p class="firstPageInf21 zar widthParagraf17" id="firstPage_Subject18" style="text-align: center;"></p>
+        </div>
+
+        <div class="tarjomeh" id="tarjomeh2" style="text-align: center;">
+            <p class="matn_tarjomeh zar"></p>
+        </div>
+
+        <div class="generalPage" id="generalPage2" style="text-align: center;">
+            <p class="subjectFP zar" id="subject2">موضوع این مجموعه آیات: </p>
+            <p class="numberPageFP badr" id="numberPage2">اسلاید 6 از 8 اسلاید</p>
+            <div id="part442" style="display: none;">
+                <div class="generalPart4 p41">
+                    <p class="hafs matn42" id="mp412"></p>
+                    <p class="zar tarjomeh42" id="tp412"></p>
+                </div>
+                <div class="generalPart4 p42">
+                    <p class="hafs matn42" id="mp422"></p>
+                    <p class="zar tarjomeh42" id="tp422"></p>
+                </div>
+                <div class="generalPart4 p43">
+                    <p class="hafs matn42" id="mp432"></p>
+                    <p class="zar tarjomeh42" id="tp432"></p>
+                </div>
+                <div class="generalPart4 p44">
+                    <p class="hafs matn42" id="mp442"></p>
+                    <p class="zar tarjomeh42" id="tp442"></p>
+                </div>
+            </div>
+            <div id="part432" style="display: none;">
+                <div class="generalPart4 p31">
+                    <p class="hafs matn42" id="mp312"></p>
+                    <p class="zar tarjomeh42" id="tp312"></p>
+                </div>
+                <div class="generalPart4 p32">
+                    <p class="hafs matn42" id="mp322"></p>
+                    <p class="zar tarjomeh42" id="tp322"></p>
+                </div>
+                <div class="generalPart4 p33">
+                    <p class="hafs matn42" id="mp332"></p>
+                    <p class="zar tarjomeh42" id="tp332"></p>
+                </div>
+            </div>
+            <div id="part422" style="display: none;">
+                <div class="generalPart4 p21">
+                    <p class="hafs matn42" id="mp212b"></p>
+                    <p class="zar tarjomeh42" id="tp212b"></p>
+                </div>
+                <div class="generalPart4 p22">
+                    <p class="hafs matn42" id="mp222b"></p>
+                    <p class="zar tarjomeh42" id="tp222b"></p>
+                </div>
+            </div>
+            <div id="part222" style="display: none;">
+                <div class="generalPart2 p221">
+                    <div style="position: relative;top: 50%;transform: translateY(-50%);">
+                        <p class="hafs matn22" id="mp2212"></p>
+                        <p class="zar tarjomeh22" id="tp2212"></p>
+                    </div>
+                </div>
+                <div class="generalPart2 p222">
+                    <div style="position: relative;top: 50%;transform: translateY(-50%);">
+                        <p class="hafs matn22" id="mp2222"></p>
+                        <p class="zar tarjomeh22" id="tp2222"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="part212" style="display: none;">
+                <div class="generalPart2 p211">
+                    <div style="position: relative;top: 50%;transform: translateY(-50%);">
+                        <p class="hafs matn22" id="mp2112"></p>
+                        <p class="zar tarjomeh22" id="tp2112"></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div id="partFP412" style="display: none;">
+                <p class="badr infsoreh infsorehR412" id="is4112"></p>
+                <div class="generalPart4 p41 pFP41 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh412"></div>
+                <p class="badr infsoreh infsorehL412" id="is4122"></p>
+                <div class="generalPart4 p42">
+                    <p class="hafs matn4" id="mns412"></p>
+                    <p class="zar tarjomeh4" id="tns412"></p>
+                </div>
+                <div class="generalPart4 p43">
+                    <p class="hafs matn42" id="mns422"></p>
+                    <p class="zar tarjomeh42" id="tns422"></p>
+                </div>
+                <div class="generalPart4 p44">
+                    <p class="hafs matn42" id="mns432"></p>
+                    <p class="zar tarjomeh42" id="tns432"></p>
+                </div>
+            </div>
+            <div id="partFP422" style="display: none;">
+                <p class="badr infsoreh infsorehR422" id="is4212"></p>
+                <div class="generalPart4 pFP42 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh422"></div>
+                <p class="badr infsoreh infsorehL422" id="is4222"></p>
+                <div class="generalPart4 p43">
+                    <p class="hafs matn42" id="mns312"></p>
+                    <p class="zar tarjomeh42" id="tns312"></p>
+                </div>
+                <div class="generalPart4 p44">
+                    <p class="hafs matn42" id="mns322"></p>
+                    <p class="zar tarjomeh42" id="tns322"></p>
+                </div>
+            </div>
+            <div id="partFP212" style="display: none;">
+                <p class="badr infsoreh infsorehR212" id="is2112"></p>
+                <div class="generalPart2 pf221 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh432"></div>
+                <p class="badr infsoreh infsorehL212" id="is2122"></p>
+                <div class="generalPart2 p222">
+                    <div style="position: relative;top: 50%;transform: translateY(-50%);">
+                        <p class="hafs matn22" id="mns212"></p>
+                        <p class="zar tarjomeh22" id="tns212"></p>
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <div style="position: fixed; bottom: 0; right: 0; width: 100%; display: none;" id="button-controlers">
+        <button class="select-type bt-control badr btc1" style="padding: 0.5%;" onclick="nextOrPrevious(1)"><b>بعدی</b></button>
+        <button class="select-type bt-control badr btc2" style="padding: 0.5%;" onclick="nextOrPrevious(-1)"><b>قبلی</b></button>
+        <button class="select-type bt-control badr btc3" style="padding: 0.5%;" onclick="document.getElementById(proses[localStorage.getItem('page')][0]).style.display='none';document.getElementById('button-controlers').style.display='none';document.getElementById('generalPage2').style.display='none';document.getElementById('generalPage').style.display='none';"><b>خروج</b></button>
+    </div>
+
+    <script src="./JSs/inf.js"></script>
+    <script src="./JSs/general.js"></script>
+</body>
+</html>
