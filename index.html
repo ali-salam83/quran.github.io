@@ -551,10 +551,14 @@
     <script src="./JSs/inf.js"></script>
     <script src="./JSs/general.js"></script>
     <script>
-        const staticCacheName = "site-static-v1";
-        const cacheAssets = [
-        "/",
-        "/index.html",
+        self.addEventListener("install", (event) => {
+  event.waitUntil(
+    self.caches
+      .open("v1")
+      .then((cache) =>
+        cache.addAll([
+          "/",
+          "/index.html",
         "/CSSs/quran.css",
         "/fonts/BBadr.ttf",
         "/fonts/IRZar.ttf",
@@ -584,34 +588,11 @@
         "/js/materialize.min.js",
         "/img/dish.png",
         "./pages/fallback.html"
-        ];
-
-        self.addEventListener("install", evt => {
-        evt.waitUntil(
-            caches
-            .open(staticCacheName)
-            .then(cache => {
-                console.log("caching assets...");
-                cache.addAll(cacheAssets);
-            })
-            .catch(err => {})
-        );
-        });
-
-        self.addEventListener("fetch", evt => {
-        evt.respondWith(
-            caches
-            .match(evt.request)
-            .then(res => {
-                return res || fetch(evt.request);
-            })
-            .catch(err => {
-                if (evt.request.url.indexOf(".html") > -1) {
-                return caches.match("index.html");
-                }
-            })
-        );
-        });
+        ]),
+      ),
+  );
+});
     </script>
 </body>
 </html>
+
