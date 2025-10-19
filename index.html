@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قرآن مبارک</title>
     <link rel="stylesheet" href="./CSSs/quran.css">
+    <link rel="manifest" href="manifest.json" />
 </head>
 <body onload="setTimeout(noneDisplyFirst,2000)">
     <div id="firstPageApp" style="position: absolute; z-index: 100; top: 0; left: 0; width: 100%; height: 100%;">
@@ -42,7 +43,7 @@
             </div>
         </div>
         <div class="partishen-general">
-            <div style="display: inline-block; width: 50%; padding: 1% 5%;">
+            <div style="display: inline-block; width: 49%; padding: 1% 5%;">
                 <span class="badr fz1_7"><b>نسبت صفحه را انتخاب کنید:</b></span>
             </div>
             <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
@@ -57,7 +58,7 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <div style="display: inline-block; width: 50%; padding: 1% 5%;">
+            <div style="display: inline-block; width: 49%; padding: 1% 5%;">
                 <span class="badr fz1_7"><b>اندازه متون (تعداد هر بخش در اسلاید):</b></span>
             </div>
             <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
@@ -332,9 +333,11 @@
 
 
             <div id="partFP41" style="display: none;">
-                <p class="badr infsoreh infsorehR41" id="is411"></p>
-                <div class="generalPart4 p41 pFP41 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh41"></div>
-                <p class="badr infsoreh infsorehL41" id="is412"></p>
+                <div class="generalPart4 p41 pFP41 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR41" id="is411"></p>
+                    <p class=" firtsoreh hafs" id="nameSoreh41"></p>
+                    <p class="badr infsoreh infsorehL41" id="is412"></p>
+                </div>
                 <div class="generalPart4 p42">
                     <p class="hafs matn4" id="mns41"></p>
                     <p class="zar tarjomeh4" id="tns41"></p>
@@ -349,9 +352,11 @@
                 </div>
             </div>
             <div id="partFP42" style="display: none;">
-                <p class="badr infsoreh infsorehR42" id="is421"></p>
-                <div class="generalPart4 pFP42 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh42"></div>
-                <p class="badr infsoreh infsorehL42" id="is422"></p>
+                <div class="generalPart4 pFP42 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR42" id="is421"></p>
+                    <p class=" firtsoreh hafs" id="nameSoreh42"></p>
+                    <p class="badr infsoreh infsorehL42" id="is422"></p>
+                </div>
                 <div class="generalPart4 p43">
                     <p class="hafs matn4" id="mns31"></p>
                     <p class="zar tarjomeh4" id="tns31"></p>
@@ -362,9 +367,11 @@
                 </div>
             </div>
             <div id="partFP21" style="display: none;">
-                <p class="badr infsoreh infsorehR21" id="is211"></p>
-                <div class="generalPart2 pf221 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh43"></div>
-                <p class="badr infsoreh infsorehL21" id="is212"></p>
+                <div class="generalPart2 pf221 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR21" id="is211"></p>
+                    <p class="  firtsoreh hafs" id="nameSoreh43"></p>
+                    <p class="badr infsoreh infsorehL21" id="is212"></p>
+                </div>
                 <div class="generalPart2 p222">
                     <div style="position: relative;top: 50%;transform: translateY(-50%);">
                         <p class="hafs matn2" id="mns21"></p>
@@ -479,9 +486,11 @@
 
 
             <div id="partFP412" style="display: none;">
-                <p class="badr infsoreh infsorehR412" id="is4112"></p>
-                <div class="generalPart4 p41 pFP41 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh412"></div>
-                <p class="badr infsoreh infsorehL412" id="is4122"></p>
+                <div class="generalPart4 p41 pFP41 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR412" id="is4112"></p>
+                    <p class=" firtsoreh hafs" id="nameSoreh412"></p>
+                    <p class="badr infsoreh infsorehL412" id="is4122"></p>
+                </div>
                 <div class="generalPart4 p42">
                     <p class="hafs matn4" id="mns412"></p>
                     <p class="zar tarjomeh4" id="tns412"></p>
@@ -496,9 +505,11 @@
                 </div>
             </div>
             <div id="partFP422" style="display: none;">
-                <p class="badr infsoreh infsorehR422" id="is4212"></p>
-                <div class="generalPart4 pFP42 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh422"></div>
-                <p class="badr infsoreh infsorehL422" id="is4222"></p>
+                <div class="generalPart4 pFP42 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR422" id="is4212"></p>
+                    <p class=" firtsoreh hafs" id="nameSoreh422"></p>
+                    <p class="badr infsoreh infsorehL422" id="is4222"></p>
+                </div>
                 <div class="generalPart4 p43">
                     <p class="hafs matn42" id="mns312"></p>
                     <p class="zar tarjomeh42" id="tns312"></p>
@@ -509,9 +520,11 @@
                 </div>
             </div>
             <div id="partFP212" style="display: none;">
-                <p class="badr infsoreh infsorehR212" id="is2112"></p>
-                <div class="generalPart2 pf221 firtsoreh hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;" id="nameSoreh432"></div>
-                <p class="badr infsoreh infsorehL212" id="is2122"></p>
+                <div class="generalPart2 pf221 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR212" id="is2112"></p>
+                    <p class="hafs  firtsoreh" id="nameSoreh432"></p>
+                    <p class="badr infsoreh infsorehL212" id="is2122"></p>
+                </div>
                 <div class="generalPart2 p222">
                     <div style="position: relative;top: 50%;transform: translateY(-50%);">
                         <p class="hafs matn22" id="mns212"></p>
@@ -537,5 +550,68 @@
 
     <script src="./JSs/inf.js"></script>
     <script src="./JSs/general.js"></script>
+    <script>
+        const staticCacheName = "site-static-v1";
+        const cacheAssets = [
+        "/",
+        "/index.html",
+        "/CSSs/quran.css",
+        "/fonts/BBadr.ttf",
+        "/fonts/IRZar.ttf",
+        "/fonts/KFGQPCHAFSUthmanicScript-Regular.ttf",
+        "/JSs/general.js",
+        "/JSs/inf.js",
+        "/images/end.png",
+        "/images/end2.png",
+        "/images/first.png",
+        "/images/first2.png",
+        "/images/first3.png",
+        "/images/general.png",
+        "/images/general2.png",
+        "/images/jozIcon.png",
+        "/images/logo - Copy.png",
+        "/images/logo.png",
+        "/images/nameGod.png",
+        "/images/nameGod2.png",
+        "/images/page.png",
+        "/images/pages.png",
+        "/images/patern-background.png",
+        "/images/soreh icon.png",
+        "/images/tarjomeh.png",
+        "/images/tarjomeh2.png",
+        "/images/titrSoreh.png",
+        "/images/titrSoreh2.png",
+        "/js/materialize.min.js",
+        "/img/dish.png",
+        "./pages/fallback.html"
+        ];
+
+        self.addEventListener("install", evt => {
+        evt.waitUntil(
+            caches
+            .open(staticCacheName)
+            .then(cache => {
+                console.log("caching assets...");
+                cache.addAll(cacheAssets);
+            })
+            .catch(err => {})
+        );
+        });
+
+        self.addEventListener("fetch", evt => {
+        evt.respondWith(
+            caches
+            .match(evt.request)
+            .then(res => {
+                return res || fetch(evt.request);
+            })
+            .catch(err => {
+                if (evt.request.url.indexOf(".html") > -1) {
+                return caches.match("index.html");
+                }
+            })
+        );
+        });
+    </script>
 </body>
 </html>
