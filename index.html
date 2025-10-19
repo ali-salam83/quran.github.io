@@ -551,13 +551,11 @@
     <script src="./JSs/inf.js"></script>
     <script src="./JSs/general.js"></script>
     <script>
-        self.addEventListener("install", (event) => {
-  event.waitUntil(
-    self.caches
-      .open("v1")
-      .then((cache) =>
-        cache.addAll([
-          "/",
+       const CACHE_NAME = 'v1.0.0';
+        const OFFLINE_URL = '/offline.html';
+        
+        // فایل‌هایی که باید کش شوند
+        const STATIC_CACHE = [
           "/index.html",
         "/CSSs/quran.css",
         "/fonts/BBadr.ttf",
@@ -588,11 +586,81 @@
         "/js/materialize.min.js",
         "/img/dish.png",
         "./pages/fallback.html"
-        ]),
-      ),
-  );
-});
+        ];
+        
+        // نصب Service Worker
+        self.addEventListener('install', (event) => {
+          console.log('Service Worker installed');
+          
+          event.waitUntil(
+            caches.open(CACHE_NAME)
+              .then((cache) => {
+                console.log('Caching static files');
+                return cache.addAll(STATIC_CACHE);
+              })
+              .then(() => self.skipWaiting())
+          );
+        });
+        
+        // فعال‌سازی Service Worker
+        self.addEventListener('activate', (event) => {
+          console.log('Service Worker activated');
+          
+          event.waitUntil(
+            caches.keys().then((cacheNames) => {
+              return Promise.all(
+                cacheNames.map((cacheName) => {
+                  if (cacheName !== CACHE_NAME) {
+                    console.log('Deleting old cache:', cacheName);
+                    return caches.delete(cacheName);
+                  }
+                })
+              );
+            }).then(() => self.clients.claim())
+          );
+        });
+        
+        // مدیریت درخواست‌ها
+        self.addEventListener('fetch', (event) => {
+          // برای درخواست‌های غیر GET از استراتژی شبکه استفاده کن
+          if (event.request.method !== 'GET') return;
+        
+          event.respondWith(
+            caches.match(event.request)
+              .then((response) => {
+                // اگر فایل در کش وجود دارد برگردان
+                if (response) {
+                  return response;
+                }
+        
+                // در غیر این صورت از شبکه بگیر و کش کن
+                return fetch(event.request)
+                  .then((response) => {
+                    // فقط پاسخ‌های معتبر را کش کن
+                    if (!response || response.status !== 200 || response.type !== 'basic') {
+                      return response;
+                    }
+        
+                    const responseToCache = response.clone();
+        
+                    caches.open(CACHE_NAME)
+                      .then((cache) => {
+                        cache.put(event.request, responseToCache);
+                      });
+        
+                    return response;
+                  })
+                  .catch(() => {
+                    // اگر آفلاین هستیم و صفحه در کش نیست، صفحه آفلاین نشان بده
+                    if (event.request.destination === 'document') {
+                      return caches.match(OFFLINE_URL);
+                    }
+                  });
+              })
+          );
+        });
     </script>
 </body>
 </html>
+
 
