@@ -146,7 +146,10 @@ function setSize(){
             el.style.padding=padding_size(fsize)
         })
     }
-    paddingS('firtsoreh','2.2')
+    paddingS('firtsoreh','1')
+    if (nesbatScreen=='1.778'){
+        paddingS('firtsoreh','3')
+    }
 
     function style_fsize(nameElement, fsize) {
         var Element = document.querySelectorAll("."+nameElement)
