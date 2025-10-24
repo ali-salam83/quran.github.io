@@ -85,7 +85,7 @@ body {
 .select-type {
     margin: 1% 25%;
     border: 3px solid rgb(58 12 12);
-    padding: 0.3% 1%;
+    padding: 0.1% 1%;
     width: 50%;
     background-color: rgb(58 12 12 /100%);
     opacity: 100% !important;
@@ -100,7 +100,7 @@ body {
 
 .close-app {
     border: 3px solid rgb(58 12 12);
-    padding: 0.3% 1%;
+    padding: 0.1% 1%;
     background-color: rgb(58 12 12 /100%);
     color: #ffff;
     border-radius: 5px;
@@ -306,13 +306,19 @@ input[type=number] {
 
 
 
-.subject , .subjectFP ,  .matn_tarjomeh , .numberPage, .numberPageFP{
+.subject , .subjectFP ,  .matn_tarjomeh , .numberPage, .numberPageFP , .matn_tarjomeh2{
   position: fixed;
   color: rgb(116, 0, 0);
 }
 
-.matn_tarjomeh {
+.matn_tarjomeh , .matn_tarjomeh2{
   text-align: center;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.matn_tarjomeh1{
+  margin: auto;
 }
 
 .generalPart4 , .generalPart2 {
@@ -346,4 +352,18 @@ input[type=number] {
 
 .infsoreh {
   position: absolute;
+}
+
+.FS01 , .FS02 , .FS03 , .FS04 , .FS05 , .FS06{
+  position: relative !important;
+}
+
+.infsorehL {
+  left: 12%;
+  top: 25%;
+}
+
+.infsorehR {
+  right: 12%;
+  top: 25%;
 }
