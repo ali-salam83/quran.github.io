@@ -47,38 +47,38 @@
             </div>
         </div>
         <div class="partishen-general">
-            <div style="display: inline-block; width: 49%; padding: 1% 5%;">
+            <div style="display: inline-block; width: 49%; padding: 0.5% 5%;">
                 <span class="badr fz1_7"><b>نسبت صفحه را انتخاب کنید:</b></span>
             </div>
-            <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
+            <div style="display: inline-block; width: 24%; padding: 0.5% 5%; text-align: left;">
                 <label class="container badr" onclick="localStorage.setItem('nesbat','1.778');window.location.reload();">9*16
                     <input type="radio" id="nesbat16" name="radio">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
+            <div style="display: inline-block; width: 24%; padding: 0.5% 5%; text-align: left;">
                 <label class="container badr" onclick="localStorage.setItem('nesbat','1.333');window.location.reload();">3*4
                     <input type="radio" id="nesbat4" name="radio">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <div style="display: inline-block; width: 49%; padding: 1% 5%;">
-                <span class="badr fz1_7"><b>اندازه متون (تعداد هر بخش در اسلاید):</b></span>
+            <div style="display: inline-block; width: 49%; padding: 0.5% 5%;">
+                <span class="badr fz1_7"><b>تعداد هر بخش در هر اسلاید:</b></span>
             </div>
-            <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
+            <div style="display: inline-block; width: 24%; padding: 0.5% 5%; text-align: left;">
                 <label class="container badr" onclick="localStorage.setItem('number_line','4');setSize();">4
                     <input type="radio" id="numlin4" name="radio1">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <div style="display: inline-block; width: 24%; padding: 1% 5%; text-align: left;">
+            <div style="display: inline-block; width: 24%; padding: 0.5% 5%; text-align: left;">
                 <label class="container badr" onclick="localStorage.setItem('number_line','2');setSize();">2
                     <input type="radio" id="numlin2" name="radio1">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <button onclick="window.close()" style="width: 39%; padding: 1%;" class="close-app zar">خروج از برنامه</button>
-            <button onclick="helpApp()" style="width: 39%; padding: 1%;" class="close-app zar">راهنما</button>
+            <button onclick="window.close()" style="width: 39%; padding: 0.5%;" class="close-app zar">خروج از برنامه</button>
+            <button onclick="helpApp()" style="width: 39%; padding: 0.5%;" class="close-app zar">راهنما</button>
         </div>
 
         <div id="onePage2" style="display: none;">
@@ -95,8 +95,8 @@
             <div class="bg_black_op"></div>
             <div class="winTwo" style="text-align: center;">
                 <p class="zar fz2" style="padding: 1%;">شماره صفحه اول مورد نظر برای تلاوت روزانه را وارد کنید:</p>
-                <input class="input_number badr" type="number" min="1" max="624" style="display: block;" id="twoPageValue">
-                <p class="badr error fz1_7" style="padding: 1% ;color: rgb(255, 0, 0); display: none;"><b>*شماره صفحه باید بین عدد 1 تا 624 باشد.</b></p>
+                <input class="input_number badr" type="number" min="1" max="624" step="2" style="display: block;" id="twoPageValue">
+                <p class="badr error fz1_7" style="padding: 1% ;color: rgb(255, 0, 0); display: none;"><b>*شماره صفحه باید بین عدد 1 تا 624 باشد و عدد فرد باشد.</b></p>
                 <p class="zar fz2" style="padding:1%; position: absolute; bottom: 25%;" id="iw">*صفحه بعدی انتخاب شده شما نیز به عنوان صفحه دوم اعمال خواهد شد.</p>
                 <button onclick="twoPageCode()" style="width: 30%; padding:1%; margin: 1% 15% 1% 4%; position: absolute; bottom: 1%; right: 0;" class="select-type zar">تایید</button>
                 <button onclick="buttonX()" style="width: 30%; padding:1%; margin: 1% 4% 1% 15%; position: absolute; bottom: 1%; left: 0;" class="select-type zar">انصراف</button>
@@ -238,9 +238,17 @@
                 <button onclick="buttonX()" style="width: 30%; padding:1%; margin: 1% 4% 1% 15%; position: absolute; bottom: 1%; left: 0;" class="select-type zar">انصراف</button>
             </div>
         </div>
-
         
-
+        <div id="GoSlide" style="display: none;">
+            <div class="bg_black_op" style="z-index: 9999;"></div>
+            <div class="winTwo" style="text-align: center; z-index: 10000;">
+                <p class="zar fz2" style="padding:1%;">شماره اسلایدی که می‌خواهید به آن بروید را وارد کنید.</p>
+                <input class="input_number badr" type="number" style="display: block;" id="inputNumberSlide">
+                <p class="badr error fz1_7" style="padding:1%; color: rgb(255, 0, 0); display: none;" id="error"></p>
+                <button onclick="goToSlide()" style="width: 30%; padding:1%; margin: 1% 15% 1% 4%; position: absolute; bottom: 1%; right: 0;" class="select-type zar">تایید</button>
+                <button onclick="buttonX()" style="width: 30%; padding:1%; margin: 1% 4% 1% 15%; position: absolute; bottom: 1%; left: 0;" class="select-type zar">انصراف</button>
+            </div>
+        </div>
 
 
         <div class="nameGod" id="nameGod" style="text-align: center;"></div>
@@ -263,7 +271,9 @@
         </div>
 
         <div class="tarjomeh" id="tarjomeh" style="text-align: center;">
-            <p class="matn_tarjomeh zar"></p>
+            <div class="matn_tarjomeh1" style="position: relative;top: 55%;transform: translateY(-50%);">
+                <span class="matn_tarjomeh zar" id="tarjomeh02"></span>
+            </div>
         </div>
 
         <div class="generalPage" id="generalPage" style="text-align: center;">
@@ -337,10 +347,10 @@
 
 
             <div id="partFP41" style="display: none;">
-                <div class="generalPart4 p41 pFP41 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
-                    <p class="badr infsoreh infsorehR41" id="is411"></p>
+                <div class="generalPart4 pFP41 hafs FS01" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR" id="is411"></p>
                     <p class=" firtsoreh hafs" id="nameSoreh41"></p>
-                    <p class="badr infsoreh infsorehL41" id="is412"></p>
+                    <p class="badr infsoreh infsorehL" id="is412"></p>
                 </div>
                 <div class="generalPart4 p42">
                     <p class="hafs matn4" id="mns41"></p>
@@ -356,10 +366,10 @@
                 </div>
             </div>
             <div id="partFP42" style="display: none;">
-                <div class="generalPart4 pFP42 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
-                    <p class="badr infsoreh infsorehR42" id="is421"></p>
+                <div class="generalPart4 pFP42 hafs FS02" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR" id="is421"></p>
                     <p class=" firtsoreh hafs" id="nameSoreh42"></p>
-                    <p class="badr infsoreh infsorehL42" id="is422"></p>
+                    <p class="badr infsoreh infsorehL" id="is422"></p>
                 </div>
                 <div class="generalPart4 p43">
                     <p class="hafs matn4" id="mns31"></p>
@@ -371,10 +381,10 @@
                 </div>
             </div>
             <div id="partFP21" style="display: none;">
-                <div class="generalPart2 pf221 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
-                    <p class="badr infsoreh infsorehR21" id="is211"></p>
+                <div class="generalPart2 pf221 hafs FS03" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR" id="is211"></p>
                     <p class="  firtsoreh hafs" id="nameSoreh43"></p>
-                    <p class="badr infsoreh infsorehL21" id="is212"></p>
+                    <p class="badr infsoreh infsorehL" id="is212"></p>
                 </div>
                 <div class="generalPart2 p222">
                     <div style="position: relative;top: 50%;transform: translateY(-50%);">
@@ -398,7 +408,7 @@
         <div class="firstPage" id="firstPage3" style="text-align: center;">
             <p class="firstPageInf10 badr widthParagraf8" id="firstPage_numPage3"></p>
             <p class="firstPageInf11 badr widthParagraf9" id="firstPage_Subject9" style="text-align: right;"></p>
-            <pre class="firstPageInf12 badr widthParagraf10" id="firstPage_Subject10"></pre>
+            <p class="firstPageInf12 badr widthParagraf10" id="firstPage_Subject10"></p>
             <p class="firstPageInf13 badr widthParagraf11" id="firstPage_Subject11"></p>
             <p class="firstPageInf14 badr" id="firstPage_Subject12" style="text-align: right;"></p>
             <p class="firstPageInf15 zar widthParagraf12" id="firstPage_Subject13" style="text-align: center;"></p>
@@ -414,7 +424,9 @@
         </div>
 
         <div class="tarjomeh" id="tarjomeh2" style="text-align: center;">
-            <p class="matn_tarjomeh zar"></p>
+            <div style="position: relative;top: 55%;transform: translateY(-50%);" class="matn_tarjomeh1">
+                <pre class="matn_tarjomeh2 zar" id="tarjomeh202"></pre>
+            </div>
         </div>
 
         <div class="generalPage" id="generalPage2" style="text-align: center;">
@@ -490,14 +502,14 @@
 
 
             <div id="partFP412" style="display: none;">
-                <div class="generalPart4 p41 pFP41 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
-                    <p class="badr infsoreh infsorehR412" id="is4112"></p>
+                <div class="generalPart4 p41 pFP41 hafs FS04" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR" id="is4112"></p>
                     <p class=" firtsoreh hafs" id="nameSoreh412"></p>
-                    <p class="badr infsoreh infsorehL412" id="is4122"></p>
+                    <p class="badr infsoreh infsorehL" id="is4122"></p>
                 </div>
                 <div class="generalPart4 p42">
-                    <p class="hafs matn4" id="mns412"></p>
-                    <p class="zar tarjomeh4" id="tns412"></p>
+                    <p class="hafs matn42" id="mns412"></p>
+                    <p class="zar tarjomeh42" id="tns412"></p>
                 </div>
                 <div class="generalPart4 p43">
                     <p class="hafs matn42" id="mns422"></p>
@@ -509,10 +521,10 @@
                 </div>
             </div>
             <div id="partFP422" style="display: none;">
-                <div class="generalPart4 pFP42 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
-                    <p class="badr infsoreh infsorehR422" id="is4212"></p>
+                <div class="generalPart4 pFP42 hafs  FS05" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR" id="is4212"></p>
                     <p class=" firtsoreh hafs" id="nameSoreh422"></p>
-                    <p class="badr infsoreh infsorehL422" id="is4222"></p>
+                    <p class="badr infsoreh infsorehL" id="is4222"></p>
                 </div>
                 <div class="generalPart4 p43">
                     <p class="hafs matn42" id="mns312"></p>
@@ -524,10 +536,10 @@
                 </div>
             </div>
             <div id="partFP212" style="display: none;">
-                <div class="generalPart2 pf221 hafs" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
-                    <p class="badr infsoreh infsorehR212" id="is2112"></p>
+                <div class="generalPart2 pf221 hafs  FS06" style="background-image: url(./images/titrSoreh.png); background-size: cover;">
+                    <p class="badr infsoreh infsorehR" id="is2112"></p>
                     <p class="hafs  firtsoreh" id="nameSoreh432"></p>
-                    <p class="badr infsoreh infsorehL212" id="is2122"></p>
+                    <p class="badr infsoreh infsorehL" id="is2122"></p>
                 </div>
                 <div class="generalPart2 p222">
                     <div style="position: relative;top: 50%;transform: translateY(-50%);">
@@ -549,154 +561,14 @@
     <div style="position: fixed; bottom: 0; right: 0; width: 100%; display: none;" id="button-controlers">
         <button class="select-type bt-control badr btc1" style="padding: 0.5%;" onclick="nextOrPrevious(1)"><b>بعدی</b></button>
         <button class="select-type bt-control badr btc2" style="padding: 0.5%;" onclick="nextOrPrevious(-1)"><b>قبلی</b></button>
-        <button class="select-type bt-control badr btc3" style="padding: 0.5%;" onclick="document.getElementById(proses[localStorage.getItem('page')][0]).style.display='none';document.getElementById('button-controlers').style.display='none';document.getElementById('generalPage2').style.display='none';document.getElementById('generalPage').style.display='none';"><b>خروج</b></button>
+        <button class="select-type bt-control badr btc1" style="padding: 0.5%; display: none;" onclick="document.getElementById('GoSlide').style.display='block';" id="GoSlideButton"><b>برو به اسلاید</b></button>
+        <button class="select-type bt-control badr btc3" style="padding: 0.5%;" onclick="document.getElementById('button-controlers').style.display='none';document.getElementById(proses[localStorage.getItem('page')][0]).style.display='none';document.getElementById('generalPage2').style.display='none';document.getElementById('generalPage').style.display='none';"><b>خروج</b></button>
     </div>
 
     <script src="./JSs/inf.js"></script>
     <script src="./JSs/general.js"></script>
-    <script>
-       const CACHE_NAME = 'v1.0.0';
-        const OFFLINE_URL = '/index.html';
-        
-        // فایل‌هایی که باید کش شوند
-        const STATIC_CACHE = [
-          "/index.html",
-        "/CSSs/quran.css",
-        "/fonts/BBadr.ttf",
-        "/fonts/IRZar.ttf",
-        "/fonts/KFGQPCHAFSUthmanicScript-Regular.ttf",
-        "/JSs/general.js",
-        "/JSs/inf.js",
-        "/images/end.png",
-        "/images/end2.png",
-        "/images/first.png",
-        "/images/first2.png",
-        "/images/first3.png",
-        "/images/general.png",
-        "/images/general2.png",
-        "/images/jozIcon.png",
-        "/images/logo - Copy.png",
-        "/images/logo.png",
-        "/images/nameGod.png",
-        "/images/nameGod2.png",
-        "/images/page.png",
-        "/images/pages.png",
-        "/images/patern-background.png",
-        "/images/soreh icon.png",
-        "/images/tarjomeh.png",
-        "/images/tarjomeh2.png",
-        "/images/titrSoreh.png",
-        "/images/titrSoreh2.png",
-        "/js/materialize.min.js",
-        "/img/dish.png",
-        "./pages/fallback.html"
-        ];
-        
-        // نصب Service Worker
-        self.addEventListener('install', (event) => {
-          console.log('Service Worker installed');
-          
-          event.waitUntil(
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                console.log('Caching static files');
-                return cache.addAll(STATIC_CACHE);
-              })
-              .then(() => self.skipWaiting())
-          );
-        });
-        
-        // فعال‌سازی Service Worker
-        self.addEventListener('activate', (event) => {
-          console.log('Service Worker activated');
-          
-          event.waitUntil(
-            caches.keys().then((cacheNames) => {
-              return Promise.all(
-                cacheNames.map((cacheName) => {
-                  if (cacheName !== CACHE_NAME) {
-                    console.log('Deleting old cache:', cacheName);
-                    return caches.delete(cacheName);
-                  }
-                })
-              );
-            }).then(() => self.clients.claim())
-          );
-        });
-        
-        // مدیریت درخواست‌ها
-        self.addEventListener('fetch', (event) => {
-          // برای درخواست‌های غیر GET از استراتژی شبکه استفاده کن
-          if (event.request.method !== 'GET') return;
-        
-          event.respondWith(
-            caches.match(event.request)
-              .then((response) => {
-                // اگر فایل در کش وجود دارد برگردان
-                if (response) {
-                  return response;
-                }
-        
-                // در غیر این صورت از شبکه بگیر و کش کن
-                return fetch(event.request)
-                  .then((response) => {
-                    // فقط پاسخ‌های معتبر را کش کن
-                    if (!response || response.status !== 200 || response.type !== 'basic') {
-                      return response;
-                    }
-        
-                    const responseToCache = response.clone();
-        
-                    caches.open(CACHE_NAME)
-                      .then((cache) => {
-                        cache.put(event.request, responseToCache);
-                      });
-        
-                    return response;
-                  })
-                  .catch(() => {
-                    // اگر آفلاین هستیم و صفحه در کش نیست، صفحه آفلاین نشان بده
-                    if (event.request.destination === 'document') {
-                      return caches.match(OFFLINE_URL);
-                    }
-                  });
-              })
-          );
-        });
-    </script>
-    <script>
-        // ثبت Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(function(registration) {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(function(error) {
-                        console.log('ServiceWorker registration failed: ', error);
-                    });
-            });
-        }
-
-        // تشخیص آفلاین/آنلاین
-        window.addEventListener('online', function() {
-            console.log('You are online');
-            document.body.classList.remove('offline');
-        });
-
-        window.addEventListener('offline', function() {
-            console.log('You are offline');
-            document.body.classList.add('offline');
-        });
-
-        // بررسی وضعیت اتصال در هنگام لود
-        if (!navigator.onLine) {
-            document.body.classList.add('offline');
-        }
-    </script>
 </body>
 </html>
-
 
 
 
