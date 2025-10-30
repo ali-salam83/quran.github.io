@@ -2,7 +2,7 @@
   "name": "قرآن مبارک",
   "short_name": "قرآن",
   "description": "قرآن مبارک، نسخه ای از فرآن برای تدبر همگان",
-  "start_url": "/quran.github.io/",
+  "start_url": "https://ali-salam83.github.io/quran.github.io/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "rgb(203, 187, 158)",
@@ -16,3 +16,4 @@
   ]
 
 }
+
