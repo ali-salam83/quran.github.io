@@ -406,7 +406,7 @@ input[type=number] {
   opacity: 100%;
   border: #000 solid 0px;
   border-radius: 0px;
-  width: 40%;
+  width: 39%;
   display: inline-block;
 }
 
@@ -460,4 +460,5 @@ input[type=number] {
 .alink:hover{
   color: rgb(116, 0, 0);
   text-decoration: none;
+
 }
