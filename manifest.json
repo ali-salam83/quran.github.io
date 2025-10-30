@@ -2,7 +2,7 @@
   "name": "قرآن مبارک",
   "short_name": "قرآن",
   "description": "قرآن مبارک، نسخه ای از فرآن برای تدبر همگان",
-  "start_url": "/",
+  "start_url": "/quran.github.io/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "rgb(203, 187, 158)",
@@ -14,4 +14,5 @@
       "type": "image/png"
     }
   ]
+
 }
