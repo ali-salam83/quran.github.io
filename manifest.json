@@ -1,0 +1,17 @@
+{
+  "name": "قرآن مبارک",
+  "short_name": "قرآن",
+  "description": "قرآن مبارک، نسخه ای از فرآن برای تدبر همگان",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "rgb(203, 187, 158)",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "./icon/icon.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    }
+  ]
+}
